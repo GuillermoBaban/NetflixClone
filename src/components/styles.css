@@ -1,0 +1,11 @@
+.hiddenBar::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.imgHover:hover {
+  transition-duration: 0.4s;
+  z-index: 99;
+  cursor: pointer !important;
+  width: 450px !important;
+}
