@@ -28,3 +28,17 @@ export async function getPopular() {
       return results;
     });
 }
+
+export async function getTopRated() {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1
+    `
+    )
+    .then((response) => {
+      const {
+        data: { results },
+      } = response;
+      return results;
+    });
+}
