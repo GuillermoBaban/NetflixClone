@@ -1,33 +1,43 @@
 import { Row, Card } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import axios from "../services/axios";
 import "./styles.css";
 
-const URL = "https://www.themoviedb.org/t/p/w533_and_h300_bestv2";
+const img_url = "https://image.tmdb.org/t/p/original";
 
-export const Rows = ({ movies }) => {
+export const Rows = ({ title, fetchUrl }) => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(fetchUrl);
+
+      setMovies(request.data.results);
+    }
+    fetchData();
+  }, [fetchUrl]);
+
   return (
     <>
+      <h1 className="d-inline">{title}</h1>
       <Row className="flex-nowrap hiddenBar">
-        {movies.map((card) => (
+        {movies.map((movie) => (
           <Card
+            key={movie.id}
+            className="cardMove p-0 border-0"
             style={{
-              width: "20rem",
-              backgroundColor: "black",
+              width: "10rem",
               marginTop: "2rem",
+              marginLeft: "1rem",
+              marginBottom: "1rem",
             }}
-            key={card.id}
-            className="item"
           >
             <Card.Img
               className="imgHover"
               variant="bottom"
-              style={{ width: "20rem" }}
-              src={URL + card.backdrop_path}
+              style={{ width: "10rem" }}
+              src={img_url + movie.poster_path}
             />
-            <Card.Body>
-              <Card.Title className="text-primary">
-                {card.original_title}
-              </Card.Title>
-            </Card.Body>
           </Card>
         ))}
       </Row>

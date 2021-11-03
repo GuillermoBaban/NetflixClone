@@ -5,11 +5,13 @@
 
 .hiddenBar {
   overflow-x: scroll;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .imgHover:hover {
   transition-duration: 0.4s;
   z-index: 99;
   cursor: pointer !important;
-  transform: scale(1.5) !important;
+  transform: scale(1.1) !important;
 }
