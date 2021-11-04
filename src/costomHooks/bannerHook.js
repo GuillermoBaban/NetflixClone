@@ -5,8 +5,6 @@ const BannerHook = (fetchUrl) => {
   const [movies, setMovies] = useState([]);
   const [load, setLoad] = useState(false);
 
-  // Siempre tengo el mismo fetch
-
   useEffect(() => {
     async function getFetch() {
       await axios
