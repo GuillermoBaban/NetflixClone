@@ -1,6 +1,6 @@
 import axios from "../services/axios";
 import { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Button } from "react-bootstrap";
 
 export const Banner = ({ fetchUrl }) => {
   const img_url = "https://image.tmdb.org/t/p/original";
@@ -31,20 +31,27 @@ export const Banner = ({ fetchUrl }) => {
     }
     getFetch();
   }, [fetchUrl]);
+  console.log(movies);
 
   return (
     <>
       {load ? (
         <header
-          className="bannerC"
+          className="banner"
           style={{
             backgroundSize: "cover",
             backgroundImage: `url(${img_url + movies.data.backdrop_path})`,
             backgroundPosition: "center center",
           }}
         >
-          <h1>Hola</h1>
-          <h1>aoea</h1>
+          <div className="bannerContent">
+            <h1 className="bannerTitle">{movies.data.original_title}</h1>
+            <div className="buttons">
+              <Button>Play</Button>
+              <Button>My list</Button>
+            </div>
+            <h6 className="bannerDescription">{movies.data.overview}</h6>
+          </div>
         </header>
       ) : (
         <Spinner animation="border" />

@@ -22,16 +22,7 @@ export const Rows = ({ title, fetchUrl }) => {
       <h1 className="d-inline">{title}</h1>
       <Row className="flex-nowrap hiddenBar">
         {movies.map((movie) => (
-          <Card
-            key={movie.id}
-            className="cardMove p-0 border-0"
-            style={{
-              width: "10rem",
-              marginTop: "2rem",
-              marginLeft: "1rem",
-              marginBottom: "1rem",
-            }}
-          >
+          <Card key={movie.id} className="cardMove">
             <Card.Img
               className="imgHover"
               variant="bottom"
