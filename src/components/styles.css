@@ -1,3 +1,15 @@
+body {
+  background-color: #141414;
+}
+
+.font-link {
+  font-family: "Lato", sans-serif;
+}
+
+.rows-content {
+  padding: 2rem;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -47,10 +59,25 @@
 }
 
 .bannerDescription {
-  width: 45rem;
   line-height: 1.3;
-  padding-top: 1rem;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   max-width: 345px;
   height: 80px;
+}
+
+.buttons {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.playHover:hover {
+  background-color: #bfbfbf;
+}
+
+#responsive-navbar-nav {
+  margin-left: 5rem;
+}
+
+.liks-nav:hover {
+  color: red;
 }
